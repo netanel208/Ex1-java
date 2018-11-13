@@ -265,42 +265,36 @@ public class Polynom implements Polynom_able{
 	 * First, the function determines the value f (x) = y of x0 and x1 and then checks whether f (x0) * f (x1) 
 	 * is less than zero if this does not mean that the function is either above the X axis or below the axis.
 	 * If so, then the point is to cut the x-axis according to the intermediate value theorem.
-	 * The stop condition of the function is if the deltaX and deltaY intervals are smaller than eps 
-	 * and if(f(x0)*f(midx) < 0).
-	 * if f(x0)*f(midx)<0 the recursive call to function root with values x0,midx(x0+x1/2),eps it mean to find root between this values.
-	 * otherwise the function perform recursive call to function root with values midx(x0+x1/2),x1,eps it mean to find root between this values.
-	 * 
+	 * The stop condition of the function is if the deltaX intervals are smaller than eps or a cut point with the X-axis was found 
 	 * @param x0 starting point
 	 * @param x1 end point
 	 * @param eps step (positive) value
-	 * @return
+	 * @return the point is to cut the X-axis
 	 */
-	@Override
+
 	public double root(double x0, double x1, double eps) {
 		double y0 = this.f(x0);
 		double y1 = this.f(x1);
-		if(y0*y1>0)
-		{
-			System.out.println("At first the functions should be opposite such that: f(x0)*f(x1)<=0");
-			double err = Double.POSITIVE_INFINITY;
-			return err;
-		}
-		else
-		{
-			double deltaX = Math.abs(x0-x1);   //|x0-x1| the interval between x0 to x1
-			double deltaY = Math.abs(y0-y1);   //|y0-y1|
-			if(deltaX>eps || deltaY>eps)
-			{
-				double midX = (x0+x1)/2;
-				if(y0*this.f(midX) < 0)        //if(f(x0)*f(midx) < 0)
-					return root(x0, midX, eps);// finding root in interval between x0 to midX
-				else
-					return root(midX, x1, eps);// finding root in interval between midX to x1
-			}
-			return x0;   //return a approximate value of root(f(x)=0)
-		}
-	}
 
+		if(y0*y1>0) {
+			throw new RuntimeException("Error: f(x0)*f(x1) need to be <= 0 ");
+		}
+
+		double xStep = Math.abs(x1-x0); // the range
+
+		while ((xStep>eps ) && (y0!=0 && y1!=0)) { // stop if we found point than equal 0 or xStep smaller then eps
+			double midX = (x0+x1)/2;
+			double f_Midx = this.f(midX);
+
+			if(y0*f_Midx<0) { // its mean that the crop point is on the left side
+				return root(x0,midX, eps);
+			}
+			else { // its mean that the crop point is on the right side
+				return root(midX, x1, eps);
+			}
+		}
+		return x0;
+	}
 	
 	/**
 	 * Create a deep copy of this Polynom.
