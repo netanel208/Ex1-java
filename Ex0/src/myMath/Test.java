@@ -111,7 +111,10 @@ public class Test {
 		System.out.println(m2);
 		m2.add(m1);
 		System.out.println(m2);
-		
+		Polynom p2 = new Polynom("x");
+		System.out.println(p2);
+		Polynom_able p221 = new Polynom("x^3+-8.2x^2+-0.009x^1");
+		System.out.println(p221);
 	}
 
 

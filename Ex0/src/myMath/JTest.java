@@ -120,7 +120,123 @@ class JTest {
 	
 	
 
-
+	@Test
+	public void testMonomSubstract1()
+	{
+		Monom m1 = new Monom("-3.99x^2");
+		m1.substract(m);
+		Monom m2 = new Monom("8.01x^2");
+		boolean result = m2.equals(m1);
+		assertTrue(result);
+	}
+	@Test
+	public void testMonomMultiply()
+	{
+		Monom m1 = new Monom("-3.0x");
+		m1.multiply(m);
+		Monom m2 = new Monom("36x^3");
+		boolean result = m2.equals(m1);
+		assertTrue(result);
+	}
+	@Test
+	public void testMonomMultiplyWithZero()
+	{
+		Monom m1 = new Monom("0");
+		m1.multiply(m);
+		Monom m2 = new Monom("0");
+		boolean result = m2.equals(m1);
+		assertTrue(result);
+	}
+	@Test
+	public void testMonomDerivative()
+	{
+		Monom m1 = new Monom("3x^5");
+		m1.derivative();
+		Monom m2 = new Monom("15x^4");
+		boolean result = m2.equals(m1);
+		assertTrue(result);
+	}
+	@Test
+	public void testMonomEquals()
+	{
+		Monom m1 = new Monom("-11x");
+		Monom m2 = new Monom(-11,1);
+		boolean ans = m1.equals(m2);
+		assertTrue(ans);
+	}
+	@Test
+	public void testMonomEqualsZero()
+	{
+		Monom m1 = new Monom("0");
+		Monom m2 = new Monom(0,0);
+		boolean ans = m1.equals(m2);
+		assertTrue(ans);
+	}
+	@Test
+	public void testPolynomStringConstructor1()
+	{
+		Polynom_able p1 = new Polynom("x");
+		Polynom_able p2 = new Polynom("1x");
+		boolean ans = p2.equals(p1);
+		assertTrue(ans);
+	}
+	@Test
+	public void testPolynomStringConstructor2()
+	{
+		Polynom_able p1 = new Polynom("x");
+		Polynom_able p2 = new Polynom("0");
+		p2.add(new Monom("1x"));
+		boolean ans = p2.equals(p1);
+		assertTrue(ans);
+	}
+	@Test
+	public void testPolynomStringConstructo3()
+	{
+		Polynom_able p1 = new Polynom("x^2+4x-4");
+		Polynom_able p2 = new Polynom("-2");
+		p2.add(new Monom("-2"));
+		p2.add(new Monom("x^2"));
+		p2.add(new Monom("4x^1"));
+		boolean ans = p2.equals(p1);
+		assertTrue(ans);
+	}
+	@Test
+	public void testPolynomStringConstructo4()
+	{
+		Polynom_able p1 = new Polynom("x^2+4x-4");
+		Polynom_able p2 = new Polynom("2");
+		p2.add(new Monom("2"));
+		p2.add(new Monom("-x^2"));
+		p2.add(new Monom("-4x"));
+		p2.add(p1);
+		boolean ans = p2.equals(new Polynom("0"));
+		assertTrue(ans);
+	}
+	@Test
+	public void testPolynomArea1()
+	{
+		Polynom_able p1 = new Polynom("-1x^3+2x^2+-0x^0");
+		double ans = p1.area(-1, 2, 0.001);
+		int intAns = (int)ans;
+		assertEquals(2, intAns);  //area close to 2
+	}
+	@Test
+	public void testPolynomArea2()
+	{
+		Polynom_able p2 = new Polynom("1x^3+-8.2x^2+-0.009x^1");
+		double ans = p2.area(-10, 5, 0.01);
+		int intAns = (int)ans;
+		assertEquals(0, intAns);  //area close to 0
+	}
+	@Test
+	public void testPolynomToString()
+	{
+		Polynom_able p1 = new Polynom("1x^3+-8.2x^2+-0.009x^1");
+		String str = "-0.009x^1+-8.2x^2+1.0x^3";
+		boolean b = str.equals(p1.toString());
+				assertTrue(b);
+	}
+	
 	/**
 	 * This test checks the Derivative function 
 	 * By calculates the derivative of polynom and check if the result 

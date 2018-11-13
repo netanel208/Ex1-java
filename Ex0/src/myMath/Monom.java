@@ -177,7 +177,11 @@ public class Monom implements function{
 			this.set_coefficient(this.get_coefficient()+m.get_coefficient());
 		}
 		else
-		System.err.println("Exception: can't add Monoms with different powers!");
+		{
+			this.set_coefficient(0);
+			this.set_power(0);
+			System.err.println("Exception: can't add Monoms with different powers!");
+		}
 	} //f(x)=(a1+a2)x^b
 
 	/**
@@ -187,7 +191,13 @@ public class Monom implements function{
 	public void substract(Monom m)
 	{
 		if(this.get_power() == m.get_power()) {
-		this.set_coefficient(this.get_coefficient()-m.get_coefficient());
+			this.set_coefficient(this.get_coefficient()-m.get_coefficient());
+		}
+		else
+		{
+			this.set_coefficient(0);
+			this.set_power(0);
+			System.err.println("Exception: can't substract Monoms with different powers!");
 		}
 	}
 
@@ -197,8 +207,16 @@ public class Monom implements function{
 	 */
 	public void multiply(Monom m)
 	{
-		this.set_coefficient(this.get_coefficient()*m.get_coefficient());
-		this.set_power(this.get_power()+m.get_power());
+		if(this._coefficient == 0 || m._coefficient ==0)
+		{
+			this.set_coefficient(0);
+			this.set_power(0);
+		}
+		else
+		{
+			this.set_coefficient(this.get_coefficient()*m.get_coefficient());
+			this.set_power(this.get_power()+m.get_power());
+		}
 	}
 
 	/**
