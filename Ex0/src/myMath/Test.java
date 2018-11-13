@@ -102,6 +102,7 @@ public class Test {
 //		test1();
 //		test2();
 		
+
 		Monom m1 = new Monom("1");
 		System.out.println(m1);
 		Polynom p1 = new Polynom("x^2+2x-4");
@@ -113,4 +114,9 @@ public class Test {
 		
 	}
 
-}
+
+
+
+
+	}
+	
