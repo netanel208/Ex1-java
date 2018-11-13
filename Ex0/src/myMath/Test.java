@@ -106,7 +106,11 @@ public class Test {
 		System.out.println(m1);
 		Polynom p1 = new Polynom("x^2+2x-4");
 		System.out.println(p1);
-
+		Monom m2 = new Monom(2,1);
+		System.out.println(m2);
+		m2.add(m1);
+		System.out.println(m2);
+		
 	}
 
 }

@@ -131,7 +131,10 @@ public class Monom implements function{
 			this.set_power(b);
 		}
 		else
-			System.out.println("the power should be non negative integer");
+		{
+			System.err.println("Invalid input");
+			throw new NumberFormatException();
+		}
 	}
 	/**
 	 * The constructor of the class, which receives Monom ot and send it parameters to the 
@@ -168,14 +171,25 @@ public class Monom implements function{
 	 * @param m
 	 */
 	public void add(Monom m)
-	{this.set_coefficient(this.get_coefficient()+m.get_coefficient()); } //f(x)=(a1+a2)x^b
+	{
+		if(this.get_power() == m.get_power())
+		{
+			this.set_coefficient(this.get_coefficient()+m.get_coefficient());
+		}
+		else
+		System.err.println("Exception: can't add Monoms with different powers!");
+	} //f(x)=(a1+a2)x^b
 
 	/**
 	 * Compute the subtraction of the coefficients of this with m
 	 * @param m
 	 */
 	public void substract(Monom m)
-	{this.set_coefficient(this.get_coefficient()-m.get_coefficient()); }
+	{
+		if(this.get_power() == m.get_power()) {
+		this.set_coefficient(this.get_coefficient()-m.get_coefficient());
+		}
+	}
 
 	/**
 	 * Compute the multiplication of two monom by multiplying the coefficients and connecting the powers
@@ -218,7 +232,15 @@ public class Monom implements function{
 	 * @param p
 	 */
 	public void set_power(int p) 
-	{this._power = p;}
+	{
+		if(p >= 0)
+			this._power = p;
+		else
+		{
+			System.err.println("Invalid input");
+			throw new NumberFormatException();
+		}
+	}
 
 	public String toString() {
 		return this._coefficient+"x^"+this._power;
