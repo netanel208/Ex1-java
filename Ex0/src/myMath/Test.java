@@ -103,18 +103,34 @@ public class Test {
 //		test2();
 		
 
-		Monom m1 = new Monom("1");
-		System.out.println(m1);
-		Polynom p1 = new Polynom("x^2+2x-4");
-		System.out.println(p1);
-		Monom m2 = new Monom(2,1);
-		System.out.println(m2);
-		m2.add(m1);
-		System.out.println(m2);
-		Polynom p2 = new Polynom("x");
-		System.out.println(p2);
-		Polynom_able p221 = new Polynom("x^3+-8.2x^2+-0.009x^1");
-		System.out.println(p221);
+//		Monom m1 = new Monom("1");
+//		System.out.println(m1);
+//		Polynom p1 = new Polynom("x^2+2x-4");
+//		System.out.println(p1);
+//		Monom m2 = new Monom(2,1);
+//		System.out.println(m2);
+//		m2.add(m1);
+//		System.out.println(m2);
+//		Polynom p2 = new Polynom("x");
+//		System.out.println(p2);
+//		Polynom_able p221 = new Polynom("x^3+-8.2x^2+-0.009x^1");
+//		System.out.println(p221);
+		
+		
+		Polynom p = new Polynom("x^2+4");
+		p.FunctionGraph(-4, 2);
+		
+		Polynom p1 = new Polynom("x");
+//		p1.FunctionGraph(-100, 100);
+		
+		Polynom p2 = new Polynom("x^3");
+//		p2.FunctionGraph(-2, 2);
+		
+		Polynom p3 = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
+		//p3.FunctionGraph(-2, 6);
+
+
+		
 	}
 
 

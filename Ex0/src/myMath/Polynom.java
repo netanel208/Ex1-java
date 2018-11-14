@@ -1,5 +1,6 @@
 package myMath;
 
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.function.Predicate;
@@ -43,15 +44,15 @@ public class Polynom implements Polynom_able{
 	 *  sorting and ordering of the data structure is carried out by the Comperator variable.
 	 *  @param polynom      the string that the function need to convert to Polynom
 	 */
-	
-	
+
+
 	public Polynom (String str) { 
 		this();
 		str= str.replace("-", "+-");
 		String [] subStr = str.split("\\+"); // split the string by "+" or "-"
 		for (int i = 0; i < subStr.length; i++) {
 			if (!subStr[i].equals("")) 
-			this.add(new Monom(subStr[i]));
+				this.add(new Monom(subStr[i]));
 
 
 		}
@@ -121,7 +122,7 @@ public class Polynom implements Polynom_able{
 			}
 		}
 	}
-	
+
 	/**
 	 * The function returns the value y = f (x) where f (x) is this polynom
 	 * <p>
@@ -168,7 +169,7 @@ public class Polynom implements Polynom_able{
 		}
 	}
 
-	
+
 	/**
 	 * Multiply this Polynom by p1.
 	 * The function accepts Polynom_able and multiplies this polynomial in each monom of the polynomial it receives in the function.
@@ -204,7 +205,7 @@ public class Polynom implements Polynom_able{
 		}	
 	}
 
-	
+
 	/**
 	 * Test if this Polynom is logically equals to p1.
 	 * The function accepts a polynomial and returns the truth if the polynomial it receives
@@ -242,7 +243,7 @@ public class Polynom implements Polynom_able{
 		return ans;
 	}
 
-	
+
 	/**
 	 * Test if this is the Zero Polynom
 	 * Meaning if there are no null elements that returns true.
@@ -255,7 +256,7 @@ public class Polynom implements Polynom_able{
 		return false;
 	}
 
-	
+
 	/**
 	 * Finding a numerical value between two values (currently support root only f(x)=0).
 	 * <p>
@@ -295,7 +296,7 @@ public class Polynom implements Polynom_able{
 		}
 		return x0;
 	}
-	
+
 	/**
 	 * Create a deep copy of this Polynom.
 	 * <p>
@@ -315,7 +316,7 @@ public class Polynom implements Polynom_able{
 		return pol;
 	}
 
-	
+
 	/**
 	 * Compute a new Polynom which is the derivative of this Polynom.
 	 * <p>
@@ -347,7 +348,7 @@ public class Polynom implements Polynom_able{
 		return ans;
 	}
 
-	
+
 	/**
 	 * Compute Riemann's Integral over this Polynom starting from x0, till x1 using eps size steps.
 	 * <p>
@@ -382,7 +383,7 @@ public class Polynom implements Polynom_able{
 		return area;
 	}
 
-	
+
 	/**
 	 *  @return an Iterator (of Monoms) over this Polynom
 	 */
@@ -457,7 +458,7 @@ public class Polynom implements Polynom_able{
 		}
 	}
 
-	
+
 	public String toString()
 	{
 		//"f(x) =";
@@ -475,6 +476,12 @@ public class Polynom implements Polynom_able{
 		}
 		return ans;
 	}
+	public void FunctionGraph(double x0 ,double x1)
+	{
+		LinePlotTest frame = new LinePlotTest(this, x0, x1);
+        frame.setVisible(true);
+	}
+	
 
 
 
