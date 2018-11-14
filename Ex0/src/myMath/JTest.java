@@ -90,6 +90,36 @@ class JTest {
 		boolean result = m2.equals(m1);
 		assertTrue(result);
 	}
+	
+	/**
+	 * This test checks the Multiply function 
+	 * By calculates the multiply of two polynom and check if the result 
+	 * is the same as what we expected to receive
+	 */
+	@Test
+	void testMultiplyPolynom() {
+		Polynom_able p1 = new Polynom("x-1");
+		Polynom_able p2 = new Polynom("x+1");
+		p1.multiply(p2);
+		Polynom_able expected=new Polynom ("x^2-1");
+		boolean ans =p1.equals(expected);
+		assertTrue(ans);
+	}
+	
+	/**
+	 * This test checks the CopyPolynom function 
+	 * By create new polynom , copy it and compare to the old  one
+	 */
+	@Test
+	void testCopyPolynom() {
+		Polynom_able p1 = new Polynom("x^2+5x+9");
+		Polynom_able p2 = p1.copy();
+		boolean ans =p1.equals(p2);
+		assertTrue(ans);
+	}
+	
+	
+
 	@Test
 	public void testMonomSubstract1()
 	{
@@ -206,6 +236,7 @@ class JTest {
 		boolean b = str.equals(p1.toString());
 				assertTrue(b);
 	}
+	
 	/**
 	 * This test checks the Derivative function 
 	 * By calculates the derivative of polynom and check if the result 

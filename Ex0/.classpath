@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/orez1/OneDrive/Desktop/gral-core-0.11.jar"/>
+=======
+	<classpathentry kind="lib" path="lib/gral-core-0.10.jar"/>
+>>>>>>> fd00f2ab7d4bc44e63009bdc359eb2468ee3b75f
 	<classpathentry kind="output" path="bin"/>
 </classpath>
